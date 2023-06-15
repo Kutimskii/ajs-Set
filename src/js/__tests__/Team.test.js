@@ -17,11 +17,10 @@ test('method add different heroes', () => {
 
 test('method add the same heroes', () => {
   const ClassTeam = new Team();
-  ClassTeam.add(Bman);
-  ClassTeam.add(Bman);
-  ClassTeam.add(Bman);
-  const result = ClassTeam.members.size;
-  expect(result).toEqual(1);
+  expect(() => {
+    ClassTeam.add(Bman);
+    ClassTeam.add(Bman);
+  }).toThrow(Error);
 });
 
 test('method addAll', () => {

@@ -4,7 +4,9 @@ export default class Team {
   }
 
   add(person) {
-    this.members.add(person);
+    if (this.members.has(person)) {
+      throw new Error('Персонаж уже присутсвует');
+    } else { this.members.add(person); }
   }
 
   addAll(...persons) {
